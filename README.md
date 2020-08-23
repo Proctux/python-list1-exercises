@@ -1,4 +1,5 @@
-# python-list1-exercises
+# Python Exercises (list 1) ![alt text](https://ctnovatec.com.br/wp-content/uploads/2015/01/python-logo-master-v3-TM-flattened.png)
+
 This is the first list of exercises done in Python. It was done for the Introduction to Structured Programming class
 
 #The results
