@@ -346,3 +346,51 @@ def sumIntegerLowerThan(value):
 print(f"A soma de todos os inteiros até {value} é de:", sumIntegerLowerThan(value))
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 18 - Escreva uma função que recebe como entrada um ano e retorna
+# True caso o ano seja bissexto. Caso contrário, retorn false
+
+year = int(input("Digite o ano e verifique se o mesmo é bissexto: "))
+
+def checkLeapYear(year):
+  if(year % 400 == 0 or year % 4 == 0 and year % 100 != 0):
+    print("Este é um ano bissexto!")
+    return True
+  else:
+    print("Este não é um ano bissexto")
+    return False
+
+
+checkLeapYear(year)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 19 - Escreva uma função que recebe como entrada um número inteiro
+# positivo n e imprime a representação binária desse número
+
+number = int(input("Digite um número inteiro qualquer: "))
+
+def intToBinary(number):
+  binaryArray = []
+  binaryStr = ""
+
+  while(number != 0):
+    if(number < 2):
+      binaryArray.append(1)
+      number = 0
+    else:
+      mod = number % 2
+      binaryArray.append(mod)
+      number = number // 2
+
+  binaryArray.reverse()
+  
+  for binary in binaryArray:
+    binaryStr += str(binary)
+
+  print(binaryStr)
+
+
+intToBinary(number)
+
+print()  # It will be used to print a blank line between de exercises.
