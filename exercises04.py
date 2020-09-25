@@ -296,3 +296,35 @@ def isNumberPresent(numberList, number):
 isNumberPresent(numberList, number)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 16 - Escreva uma função que recebe como entrada uma lista ordernada
+# de números e retorna o índice do primeiro elemento maior que um
+# elemento limite. Se nenhum elemento da lista for maior que o
+# limite desejado, retorne o valor -1.
+
+numbers = input("Digite os números da lista separados por vírgula: ")
+limit = int(input("Digite o valor do limite: "))
+
+
+def indexFirstBiggerThan(numbers, limit):
+  numbersList = numbers.replace(" ", "").split(",")
+  newArray = []
+  index = -1
+
+  for number in numbersList:
+    newValue = float(number)
+    newArray.append(newValue)
+
+  for number in newArray:
+    if(number > limit):
+      index = newArray.index(number)
+      return index
+    else:
+      pass
+  
+  return index
+
+
+print(indexFirstBiggerThan(numbers, limit))
+
+print()  # It will be used to print a blank line between de exercises.
