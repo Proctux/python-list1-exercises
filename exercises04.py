@@ -328,3 +328,21 @@ def indexFirstBiggerThan(numbers, limit):
 print(indexFirstBiggerThan(numbers, limit))
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 17 - escreva uma função que recebe como entrada um número
+# inteiro positivo n e retorna a soma de todos os inteiros positivos
+# menores ou iguais a n.
+
+value = int(input("Digite um número inteiro qualquer: "))
+
+def sumIntegerLowerThan(value):
+  sumValues = 0
+  for number in range(value + 1):
+    sumValues += number
+
+  return sumValues
+
+
+print(f"A soma de todos os inteiros até {value} é de:", sumIntegerLowerThan(value))
+
+print()  # It will be used to print a blank line between de exercises.
