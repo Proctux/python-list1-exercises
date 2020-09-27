@@ -1,4 +1,6 @@
 import math
+import random
+
 
 #  # Introdução a Programação Estruturada (Python)
 #  
@@ -584,5 +586,44 @@ def reverseNumber():
 
 
 reverseNumber()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 29 - Jogo de Craps. Faça um programa que implemente um jogo de
+# craps. O jogador lança um par de dados, obtendo um valor entre
+# 2 e 12. Se, na primeira jogada, você tirar 7 ou 11, você tira
+# um "natural" e ganhou. Se você tirar 2,3 ou 12, isto é chamado
+# de "craps" e você perdeu. Se na primeira jogada, você fez um
+# 4, 5, 6, 8, 9 ou 10, este é seu "Ponto". Seu objetivo agora é
+# continuar jogando os dados até tirar este número novamente. Você
+# perde, no entanto, se tirar um 7 antes de tirar esse ponto novamente.
+
+def crapsGame():
+  diceOne = random.randint(1, 6)
+  diceTwo = random.randint(1, 6)
+  sumDice = diceOne + diceTwo
+  point = sumDice
+
+  if(sumDice == 7 or sumDice == 11):
+    print(f"Você tirou um Natural e ganhou! Valor da soma dos dados: {sumDice}")
+  elif(sumDice == 2 or sumDice == 3 or sumDice == 12):
+    print(f"Você tirou um craps e perdeu! Valor da soma dos dados: {sumDice}")
+  else:
+    while(sumDice != 7 or sumDice != point):
+      diceOne = random.randint(1, 6)
+      diceTwo = random.randint(1, 6)
+      sumDice = diceOne + diceTwo
+      print(f"Novos valores de soma dos dados x valor 1° jogada: {sumDice} x {point}")
+      if(sumDice == point):
+        print("Você Tirou o mesmo número e ganhou")
+        break
+      elif(sumDice == 7):
+        print("Você tirou um 7 e perdeu")
+        break
+      else:
+        pass
+
+  
+crapsGame()
 
 print()  # It will be used to print a blank line between de exercises.
