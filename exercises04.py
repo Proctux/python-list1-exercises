@@ -627,3 +627,28 @@ def crapsGame():
 crapsGame()
 
 print()  # It will be used to print a blank line between de exercises.
+
+from datetime import datetime, date
+
+# 30 - Data com mês por extenso. Construa uma função que receba uma
+# data no formato DD/MM/AAAA e devolva uma string no formato D de
+# mesPorExtenso de AAAA. Opcionalmento, valide a data e retorne 
+# Null caso a data seja inválida.
+
+dateValue = input("Digite a data que deseja converter, (DD/MM/AAA): ")
+
+def dateConversor(dateValue):
+  try:
+    data = datetime.strptime(dateValue, '%d/%m/%Y').date()
+    dataFormatada = data.strftime('%d/%B/%Y')
+    dateStr = str(dataFormatada).replace("/", " de ")
+    print(f"A data será retornada da seguinte forma: {dateStr}")
+    return dateStr
+  except:
+    print("Data digitada é inválida. Retornando None.")
+    return None
+
+
+dateConversor(dateValue)
+
+print()  # It will be used to print a blank line between de exercises.
