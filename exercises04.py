@@ -456,3 +456,21 @@ def isPositiveOrNegative(value):
 print(isPositiveOrNegative(value))
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 24 - Faça um programa com uma função chamada somaImposto. A
+# função possui dois parâmetros formais: taxaImposto, que é a
+# quantia de imposto sobre vendas expressa em porcentagem e custo
+# que é o custo de um item antes do imposto. A função altera o
+# valor de custo para incluir o imposto sobre vendas
+
+custo = float(input("Digite o valor de custo do produto: "))
+taxaImposto = float(input("Digite a taxa de imposto sem o simbo de porcentagem: "))
+
+def somaImposto(custo, taxaImposto):
+  custo += custo * taxaImposto / 100
+  return custo
+
+
+print("O novo valor de custo é: R$ ", somaImposto(custo, taxaImposto))
+
+print()  # It will be used to print a blank line between de exercises.
