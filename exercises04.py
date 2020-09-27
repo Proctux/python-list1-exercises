@@ -474,3 +474,46 @@ def somaImposto(custo, taxaImposto):
 print("O novo valor de custo é: R$ ", somaImposto(custo, taxaImposto))
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 25 - Faça um programa que converta da notação de 24 horas
+# para a notação de 12 horas. Por exemplo, o programa deve
+# converter 14:25 em 2:25 P.M. A entrada é dada em dois inteiros
+# Deve haver pelo menos duas funções: uma para fazer a conversão
+# e uma para a saída. Registre a informação A.M/P.M como um valor
+# 'A' para A.M e 'P' para P.M. Assim, a função para efetuar as
+# conversões terá um parâmetro formal para registrar se é A.M ou
+# P.M. Inclua um loop que permita que o usuário repita esse calculo
+# para novos valores de entrada todas as vezes que desejar.
+
+repeat = "S"
+
+
+while(repeat == "S"):
+  hours = int(input("Digite as horas, sem os minutos, com duas casas no máximo: "))
+  minutes = int(input("Agora, digite os minutos: "))
+
+  def hourCheck(hours):
+    if(hours > 12):
+      return "A.M"
+    else:
+      return "P.M"
+
+
+  def hourConvertor(hours, minutes):
+    notation = hourCheck(hours)
+
+    if(hours >= 24):
+      print("Lamento, o horário digitado é maior do que 23:59")
+    elif(hours > 12):
+      hours = hours - 12
+      print(f"{hours}:{minutes} {notation}")
+    else:
+      print(f"{hours}:{minutes} {notation}")
+
+  hourConvertor(hours, minutes)  
+  response = input("Deseja repetir a operação? (S/N): ")
+  repeat = response.upper()
+  
+  
+  
+print()  # It will be used to print a blank line between de exercises.
