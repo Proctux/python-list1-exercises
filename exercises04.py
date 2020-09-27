@@ -561,3 +561,16 @@ def paymentsReport():
 paymentsReport()
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 27 - Faça uma função que informe a quantidade de dígitos de um
+# determinado número inteiro informado
+
+def qtyOfDigits():
+  value = int(input("Digite um número qualquer: "))
+  print("O número informado possuí:", len(str(value)), "dígito(s)")
+
+
+qtyOfDigits()
+
+print()  # It will be used to print a blank line between de exercises.
+
