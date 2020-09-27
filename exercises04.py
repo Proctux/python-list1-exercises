@@ -439,3 +439,20 @@ def sumOfValues(a, b, c):
 print(" A soma dos valores fornecidos é:", sumOfValues(valueOne, valueTwo, valueThree))
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 23 - Faça um programa com uma função que necessite de um argumento
+# A função retorna o valor de caractere "P", se seu argumento for
+# positivo e "N", se seu valor for zero ou negativo.
+
+value = int(input("Digite um número qualquer inteiro: "))
+
+def isPositiveOrNegative(value):
+  if(value > 0):
+    return "P"
+  else:
+    return "N"
+
+
+print(isPositiveOrNegative(value))
+
+print()  # It will be used to print a blank line between de exercises.
