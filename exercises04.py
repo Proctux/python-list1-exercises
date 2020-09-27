@@ -409,3 +409,18 @@ def intToBinary(number):
 intToBinary(number)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 21- Faça um programa para imprimir todos os números até chegar a um
+# n informado pelo usuário. Use uma função que receba um valor n
+# inteiro e imprima até a n-ésima linha.
+
+value = int(input("Digite um número inteiro qualquer: "))
+
+def printUntilNumber(value):
+  for number in range(value + 1):
+    print(number)
+
+
+printUntilNumber(value)
+
+print()  # It will be used to print a blank line between de exercises.
