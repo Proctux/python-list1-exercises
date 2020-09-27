@@ -1,4 +1,6 @@
 import math
+import random
+
 
 #  # Introdução a Programação Estruturada (Python)
 #  
@@ -407,5 +409,246 @@ def intToBinary(number):
 
 
 intToBinary(number)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 21- Faça um programa para imprimir todos os números até chegar a um
+# n informado pelo usuário. Use uma função que receba um valor n
+# inteiro e imprima até a n-ésima linha.
+
+value = int(input("Digite um número inteiro qualquer: "))
+
+def printUntilNumber(value):
+  for number in range(value + 1):
+    print(number)
+
+
+printUntilNumber(value)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 22 - Faça um programa com uma função que necessite de três
+# argumentos, e que forneça a soma desses três argumentos
+
+valueOne = int(input("Digite um valor para A: "))
+valueTwo = int(input("Digite um valor para B: "))
+valueThree = int(input("Digite um valor para C: "))
+
+def sumOfValues(a, b, c):
+  return a + b + c
+
+
+print(" A soma dos valores fornecidos é:", sumOfValues(valueOne, valueTwo, valueThree))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 23 - Faça um programa com uma função que necessite de um argumento
+# A função retorna o valor de caractere "P", se seu argumento for
+# positivo e "N", se seu valor for zero ou negativo.
+
+value = int(input("Digite um número qualquer inteiro: "))
+
+def isPositiveOrNegative(value):
+  if(value > 0):
+    return "P"
+  else:
+    return "N"
+
+
+print(isPositiveOrNegative(value))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 24 - Faça um programa com uma função chamada somaImposto. A
+# função possui dois parâmetros formais: taxaImposto, que é a
+# quantia de imposto sobre vendas expressa em porcentagem e custo
+# que é o custo de um item antes do imposto. A função altera o
+# valor de custo para incluir o imposto sobre vendas
+
+custo = float(input("Digite o valor de custo do produto: "))
+taxaImposto = float(input("Digite a taxa de imposto sem o simbo de porcentagem: "))
+
+def somaImposto(custo, taxaImposto):
+  custo += custo * taxaImposto / 100
+  return custo
+
+
+print("O novo valor de custo é: R$ ", somaImposto(custo, taxaImposto))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 25 - Faça um programa que converta da notação de 24 horas
+# para a notação de 12 horas. Por exemplo, o programa deve
+# converter 14:25 em 2:25 P.M. A entrada é dada em dois inteiros
+# Deve haver pelo menos duas funções: uma para fazer a conversão
+# e uma para a saída. Registre a informação A.M/P.M como um valor
+# 'A' para A.M e 'P' para P.M. Assim, a função para efetuar as
+# conversões terá um parâmetro formal para registrar se é A.M ou
+# P.M. Inclua um loop que permita que o usuário repita esse calculo
+# para novos valores de entrada todas as vezes que desejar.
+
+repeat = "S"
+
+
+while(repeat == "S"):
+  hours = int(input("Digite as horas, sem os minutos, com duas casas no máximo: "))
+  minutes = int(input("Agora, digite os minutos: "))
+
+  def hourCheck(hours):
+    if(hours > 12):
+      return "A.M"
+    else:
+      return "P.M"
+
+
+  def hourConvertor(hours, minutes):
+    notation = hourCheck(hours)
+
+    if(hours >= 24):
+      print("Lamento, o horário digitado é maior do que 23:59")
+    elif(hours > 12):
+      hours = hours - 12
+      print(f"{hours}:{minutes} {notation}")
+    else:
+      print(f"{hours}:{minutes} {notation}")
+
+  hourConvertor(hours, minutes)  
+  response = input("Deseja repetir a operação? (S/N): ")
+  repeat = response.upper()
+  
+  
+  
+print()  # It will be used to print a blank line between de exercises.
+
+# 26 - Faça um programa que use a função valorPagamento para
+# determinar o valor a ser pago por uma prestação de uma conta
+# O programa deverá solicitar ao usuário o valor da prestação
+# e o número de dias em atraso e passar estes valores para a função
+# valorPagamento, que calculará o valor a ser pago e devolverá este
+# valor ao programa que a chamou. O programa deverá então exibir o
+# valor a ser pago na tela. Após a execução o programa deverá voltar
+# a pedir outro valor de prestação e assim continuar até que seja
+# informado um valor igual a zero para a prestação. Neste momento
+# o programa deverá ser encerrado, exibindo o relatório do dia, que
+# conterá a quantidade e o valor total de prestações pagas no dia.
+# O cálculo do valor a ser pago é feito da seguinte forma: Para
+# pagamentos sem atraso, cobrar o valor da prestação.Quando houver
+# atrasos, cobrar 3% de multa, mais 0,1% de juros por dia de atraso
+
+def valorPagamento(valorPrestacao, diasAtraso):
+  if(diasAtraso > 0):
+    novoValor = valorPrestacao + (valorPrestacao * 0.03) + (valorPrestacao * (diasAtraso * 0.001))
+    return novoValor
+  return valorPrestacao
+
+def paymentsReport():
+  payDayList = []
+  valorPrestacao = 0.01
+
+  while(valorPrestacao > 0):
+    valorPrestacao = float(input("Digite o valor da prestação: R$ "))
+    if(valorPrestacao == 0):
+      break
+    else:
+      diasAtraso = int(input("Digite a quantidade de dias em atraso: "))
+      amount = valorPagamento(valorPrestacao, diasAtraso)
+      payDayList.append(amount)
+  
+  payDayListTotal = sum(payDayList)
+
+  print(f"A quantidade total de prestações pagas foram: {len(payDayList)}")
+  print(f"O montante total pago foi de: R$ {round(payDayListTotal, 2)}")
+
+
+paymentsReport()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 27 - Faça uma função que informe a quantidade de dígitos de um
+# determinado número inteiro informado
+
+def qtyOfDigits():
+  value = int(input("Digite um número qualquer: "))
+  print("O número informado possuí:", len(str(value)), "dígito(s)")
+
+
+qtyOfDigits()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 28 - Reverso do número. Faça uma função que retorne o reverso
+# de um número inteiro informado. Por exemplo, 127 - 721.
+
+def reverseNumber():
+  value = int(input("Digite um número qualquer: "))
+  strValue = str(value)
+  print(f"O valor reverso do número informado é: {strValue[::-1]}")
+
+
+reverseNumber()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 29 - Jogo de Craps. Faça um programa que implemente um jogo de
+# craps. O jogador lança um par de dados, obtendo um valor entre
+# 2 e 12. Se, na primeira jogada, você tirar 7 ou 11, você tira
+# um "natural" e ganhou. Se você tirar 2,3 ou 12, isto é chamado
+# de "craps" e você perdeu. Se na primeira jogada, você fez um
+# 4, 5, 6, 8, 9 ou 10, este é seu "Ponto". Seu objetivo agora é
+# continuar jogando os dados até tirar este número novamente. Você
+# perde, no entanto, se tirar um 7 antes de tirar esse ponto novamente.
+
+def crapsGame():
+  diceOne = random.randint(1, 6)
+  diceTwo = random.randint(1, 6)
+  sumDice = diceOne + diceTwo
+  point = sumDice
+
+  if(sumDice == 7 or sumDice == 11):
+    print(f"Você tirou um Natural e ganhou! Valor da soma dos dados: {sumDice}")
+  elif(sumDice == 2 or sumDice == 3 or sumDice == 12):
+    print(f"Você tirou um craps e perdeu! Valor da soma dos dados: {sumDice}")
+  else:
+    while(sumDice != 7 or sumDice != point):
+      diceOne = random.randint(1, 6)
+      diceTwo = random.randint(1, 6)
+      sumDice = diceOne + diceTwo
+      print(f"Novos valores de soma dos dados x valor 1° jogada: {sumDice} x {point}")
+      if(sumDice == point):
+        print("Você Tirou o mesmo número e ganhou")
+        break
+      elif(sumDice == 7):
+        print("Você tirou um 7 e perdeu")
+        break
+      else:
+        pass
+
+  
+crapsGame()
+
+print()  # It will be used to print a blank line between de exercises.
+
+from datetime import datetime, date
+
+# 30 - Data com mês por extenso. Construa uma função que receba uma
+# data no formato DD/MM/AAAA e devolva uma string no formato D de
+# mesPorExtenso de AAAA. Opcionalmento, valide a data e retorne 
+# Null caso a data seja inválida.
+
+dateValue = input("Digite a data que deseja converter, (DD/MM/AAA): ")
+
+def dateConversor(dateValue):
+  try:
+    data = datetime.strptime(dateValue, '%d/%m/%Y').date()
+    dataFormatada = data.strftime('%d/%B/%Y')
+    dateStr = str(dataFormatada).replace("/", " de ")
+    print(f"A data será retornada da seguinte forma: {dateStr}")
+    return dateStr
+  except:
+    print("Data digitada é inválida. Retornando None.")
+    return None
+
+
+dateConversor(dateValue)
 
 print()  # It will be used to print a blank line between de exercises.
