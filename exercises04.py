@@ -574,3 +574,15 @@ qtyOfDigits()
 
 print()  # It will be used to print a blank line between de exercises.
 
+# 28 - Reverso do número. Faça uma função que retorne o reverso
+# de um número inteiro informado. Por exemplo, 127 - 721.
+
+def reverseNumber():
+  value = int(input("Digite um número qualquer: "))
+  strValue = str(value)
+  print(f"O valor reverso do número informado é: {strValue[::-1]}")
+
+
+reverseNumber()
+
+print()  # It will be used to print a blank line between de exercises.
