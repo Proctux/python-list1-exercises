@@ -424,3 +424,18 @@ def printUntilNumber(value):
 printUntilNumber(value)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 22 - Faça um programa com uma função que necessite de três
+# argumentos, e que forneça a soma desses três argumentos
+
+valueOne = int(input("Digite um valor para A: "))
+valueTwo = int(input("Digite um valor para B: "))
+valueThree = int(input("Digite um valor para C: "))
+
+def sumOfValues(a, b, c):
+  return a + b + c
+
+
+print(" A soma dos valores fornecidos é:", sumOfValues(valueOne, valueTwo, valueThree))
+
+print()  # It will be used to print a blank line between de exercises.
