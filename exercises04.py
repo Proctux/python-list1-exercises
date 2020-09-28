@@ -678,3 +678,41 @@ word = input('Digite algo: ')
 shuffle(word)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 32 - Desenha moldura. Construa uma função que desenhe um retângulo
+# usando os caracteres "+", "" e "-". Esta função deve receber dois
+# parâmetros, linhas e colunas, sendo que o valor por omissão é o
+# valor mínimo igual a 1 e o valor máximo é 20. Se os valores fora da
+# faixa forem informados, eles devem ser modificados para os valores
+# dentro da faixa de forma elegante.
+
+def moldurePrint(height, width):
+    if(height > 20):
+        height = 20
+        print(f"Você digitou mais do que {height}. Iremos usar o valor máximo de 20")
+    elif(height < 1):
+        height = 1
+        print(f"Você digitou menos do que {height}. Iremos usar o valor mínimo de 1")
+    
+    if(width > 20):
+        width = 20
+        print(f"Você digitou mais do que {height}. Iremos usar o valor máximo de 20")
+    elif(width < 1):
+        width = 1
+        print(f"Você digitou menos do que {height}. Iremos usar o valor mínimo de 1")
+    
+    print("+" * width)
+
+    for space in range(height - 2):
+        print("-" + " " * (width - 2) + "-")
+    
+    print("+" * width)     
+            
+
+
+height = int(input("Digite a altura do retângulo (min: 1 / max: 20): "))
+width = int(input("Digite a largura do retângulo (min: 1 / max: 20): "))
+
+moldurePrint(height, width)
+
+print()  # It will be used to print a blank line between de exercises.
