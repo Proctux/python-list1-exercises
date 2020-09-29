@@ -782,3 +782,45 @@ print("O valor fatorial para o valor digitado é:", factorial(kFactorial))
 
 print()  # It will be used to print a blank line between de exercises.
 
+# 35 - Escreva uma função que receba dois inteiros, m e n, como
+# parâmetros e retorna a combinação m!/((m-n)!n!)
+
+def factorialCalcule(mValue, nValue):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < mValue):
+    counter += 1
+    varFactorial *= counter
+  
+  mFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < nValue):
+    counter += 1
+    varFactorial *= counter
+  
+  nFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < (mValue - nValue)):
+    counter += 1
+    varFactorial *= counter
+  
+  m_nFactorial = varFactorial
+
+  finalValue = mFactorial / (m_nFactorial * nFactorial)
+  return finalValue
+
+
+mFactorial = int(input("Digite um valor inteiro para o fatorial de M: "))
+nFactorial = int(input("Digite um valor inteiro para o fatorial de N: "))
+
+print(f"O valor da combinação fatorial M, N a N é :", factorialCalcule(mFactorial, nFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
