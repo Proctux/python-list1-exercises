@@ -824,3 +824,83 @@ print(f"O valor da combinação fatorial M, N a N é :", factorialCalcule(mFacto
 
 print()  # It will be used to print a blank line between de exercises.
 
+# 36 - Usando funções fatorial e combinação dos exercícios anteriores
+# escreva um programa que lê um inteiro n, m >= 0 e imprime os
+# coeficientes da expansão de (x+y) elevado a n.
+
+def expasionFactorial():
+    n = int(input("Digite n: "))
+
+    cont = 0
+    while cont <= n:
+        print("Coeficiente de x^%d y^%d: %d"%(n-cont, cont, factorialCalcule(n, cont)))
+        cont += 1
+
+
+expasionFactorial()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 37 - Um palíndromo é uma palavra que se soletra da mesma forma
+# nos dois sentidos, como "osso" e "reviver". Recursivamente, uma
+# palavra é um palíndromo se a primeira e a última letra forem
+# iguais e o meio for um palíndromo.
+
+def isPalindromo(string):
+  reverseString = string[::-1].lower()
+  if(reverseString == string.lower()):
+    print("Esta palavra é um palíndromo")
+  else:
+    print("Esta palavra não é um palíndromo")
+
+word = input("Digite uma palavra para ver se a mesma é um palíndromo: ")
+isPalindromo(word)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 38 - Um número a é uma potência de b se for divisível por b e a/b
+# for uma potência de b. Escreva uma função chamada isPower que receba
+# os parâmetros a e b e retorne True se a for uma potência de b.
+
+def isPower(valueA, valueB):
+  valueADivisor = valueA
+
+  while(valueADivisor >= valueB):
+    valueADivisor = valueADivisor / valueB
+  
+  if(valueADivisor == 1):
+    print(f"Este número é uma potência de {valueB}")
+  else:
+    print(f"Este número não é uma potência de {valueB}")
+
+
+
+valueA = int(input("Digite um valor inteiro para A: "))
+valueB = int(input("Digite um valor inteiro para B: "))
+
+isPower(valueA, valueB)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 39 - O maior divisor comum (MDC, ou GDC em inglês) de a e b é o
+# maior número que divide ambos sem sobrar resto. Um modo de encontrar
+# o MDC de dois números é observar qual é o resto r quando a é dividido
+# por b, verificando que gcd(a, b) = gcd(b, r). Como caso-base, podemos
+# usar gcd(a, 0) = a. Escreva uma função chamada gcd que receba os
+# parâmetros a e b e devolva o maior  divisor comum.
+
+def gcd(valueA, valueB):
+  if(valueB == 0):
+    return valueA
+  else:
+    print(valueA % valueB)
+    return gcd(valueB, valueA % valueB)
+
+
+valueA = int(input("Digite um valor para A: "))
+valueB = int(input("Digite um valor para B: "))
+
+print(gcd(valueA, valueB))
+
+print()  # It will be used to print a blank line between de exercises.
+
