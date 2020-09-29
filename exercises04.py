@@ -716,3 +716,69 @@ width = int(input("Digite a largura do retângulo (min: 1 / max: 20): "))
 moldurePrint(height, width)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 33 - O número de combinações possíveis de m elementos em grupo de
+# n elementos (n! = m) é dada pela fórmula de combinação m!/((m-n)!n!).
+# Escreva um programa que lê dois parâmetros m e n e calcula a
+# combinação de m, n a n.
+
+def factorialCalcule(mValue, nValue):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < mValue):
+    counter += 1
+    varFactorial *= counter
+  
+  mFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < nValue):
+    counter += 1
+    varFactorial *= counter
+  
+  nFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < (mValue - nValue)):
+    counter += 1
+    varFactorial *= counter
+  
+  m_nFactorial = varFactorial
+
+  finalValue = mFactorial / (m_nFactorial * nFactorial)
+  return finalValue
+
+
+mFactorial = int(input("Digite um valor inteiro para o fatorial de M: "))
+nFactorial = int(input("Digite um valor inteiro para o fatorial de N: "))
+
+print(f"O valor da combinação fatorial M, N a N é :", factorialCalcule(mFactorial, nFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 34 - Complete a função fatorial abaixo, que recebe como parâmetro
+# um número inteiro k, k >= 0, e retorna k!. Escreva apenas o corpo
+# da função. Observe que o código já inclui chamadas para a função
+# fatorial, para que você possa testar a função.
+
+def factorial(kFactorial):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < kFactorial):
+    counter += 1
+    varFactorial *= counter
+  
+  return varFactorial
+
+
+kFactorial = int(input("Digite o valor inteiro para ver seu valor fatorial: "))
+print("O valor fatorial para o valor digitado é:", factorial(kFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
