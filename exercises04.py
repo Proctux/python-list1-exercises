@@ -652,3 +652,303 @@ def dateConversor(dateValue):
 dateConversor(dateValue)
 
 print()  # It will be used to print a blank line between de exercises.
+
+# 31 - Embaralha palavra. Construa uma função que receba uma
+# string como parâmetro e devolva outra string com os caracteres
+# embaralhados. Por exemplo: se a função receber a palavra python
+# pode retornar npthyo, ophtyn, ou qualquer outra combinação
+# possível, de forma aleatória. Padronize em sua função que todos
+# os caracteres serão devolvidos em caixa alta ou caixa baixa
+# independentemente de como foram digitados.
+
+from random import sample
+
+def shuffle(word):
+    arraySample = sample(word, len(word))
+    newString = ''.join(arraySample)
+    
+    while(newString == word):
+        arraySample = sample(word, len(word))
+        newString = ''.join(arraySample)
+    
+    print(newString)
+
+
+word = input('Digite algo: ')
+shuffle(word)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 32 - Desenha moldura. Construa uma função que desenhe um retângulo
+# usando os caracteres "+", "" e "-". Esta função deve receber dois
+# parâmetros, linhas e colunas, sendo que o valor por omissão é o
+# valor mínimo igual a 1 e o valor máximo é 20. Se os valores fora da
+# faixa forem informados, eles devem ser modificados para os valores
+# dentro da faixa de forma elegante.
+
+def moldurePrint(height, width):
+    if(height > 20):
+        height = 20
+        print(f"Você digitou mais do que {height}. Iremos usar o valor máximo de 20")
+    elif(height < 1):
+        height = 1
+        print(f"Você digitou menos do que {height}. Iremos usar o valor mínimo de 1")
+    
+    if(width > 20):
+        width = 20
+        print(f"Você digitou mais do que {height}. Iremos usar o valor máximo de 20")
+    elif(width < 1):
+        width = 1
+        print(f"Você digitou menos do que {height}. Iremos usar o valor mínimo de 1")
+    
+    print("+" * width)
+
+    for space in range(height - 2):
+        print("-" + " " * (width - 2) + "-")
+    
+    print("+" * width)     
+            
+
+
+height = int(input("Digite a altura do retângulo (min: 1 / max: 20): "))
+width = int(input("Digite a largura do retângulo (min: 1 / max: 20): "))
+
+moldurePrint(height, width)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 33 - O número de combinações possíveis de m elementos em grupo de
+# n elementos (n! = m) é dada pela fórmula de combinação m!/((m-n)!n!).
+# Escreva um programa que lê dois parâmetros m e n e calcula a
+# combinação de m, n a n.
+
+def factorialCalcule(mValue, nValue):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < mValue):
+    counter += 1
+    varFactorial *= counter
+  
+  mFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < nValue):
+    counter += 1
+    varFactorial *= counter
+  
+  nFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < (mValue - nValue)):
+    counter += 1
+    varFactorial *= counter
+  
+  m_nFactorial = varFactorial
+
+  finalValue = mFactorial / (m_nFactorial * nFactorial)
+  return finalValue
+
+
+mFactorial = int(input("Digite um valor inteiro para o fatorial de M: "))
+nFactorial = int(input("Digite um valor inteiro para o fatorial de N: "))
+
+print(f"O valor da combinação fatorial M, N a N é :", factorialCalcule(mFactorial, nFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 34 - Complete a função fatorial abaixo, que recebe como parâmetro
+# um número inteiro k, k >= 0, e retorna k!. Escreva apenas o corpo
+# da função. Observe que o código já inclui chamadas para a função
+# fatorial, para que você possa testar a função.
+
+def factorial(kFactorial):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < kFactorial):
+    counter += 1
+    varFactorial *= counter
+  
+  return varFactorial
+
+
+kFactorial = int(input("Digite o valor inteiro para ver seu valor fatorial: "))
+print("O valor fatorial para o valor digitado é:", factorial(kFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 35 - Escreva uma função que receba dois inteiros, m e n, como
+# parâmetros e retorna a combinação m!/((m-n)!n!)
+
+def factorialCalcule(mValue, nValue):
+  varFactorial = 1
+  counter = 1
+
+  while(counter < mValue):
+    counter += 1
+    varFactorial *= counter
+  
+  mFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < nValue):
+    counter += 1
+    varFactorial *= counter
+  
+  nFactorial = varFactorial
+
+  varFactorial = 1
+  counter = 1
+
+  while(counter < (mValue - nValue)):
+    counter += 1
+    varFactorial *= counter
+  
+  m_nFactorial = varFactorial
+
+  finalValue = mFactorial / (m_nFactorial * nFactorial)
+  return finalValue
+
+
+mFactorial = int(input("Digite um valor inteiro para o fatorial de M: "))
+nFactorial = int(input("Digite um valor inteiro para o fatorial de N: "))
+
+print(f"O valor da combinação fatorial M, N a N é :", factorialCalcule(mFactorial, nFactorial))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 36 - Usando funções fatorial e combinação dos exercícios anteriores
+# escreva um programa que lê um inteiro n, m >= 0 e imprime os
+# coeficientes da expansão de (x+y) elevado a n.
+
+def expasionFactorial():
+    n = int(input("Digite n: "))
+
+    cont = 0
+    while cont <= n:
+        print("Coeficiente de x^%d y^%d: %d"%(n-cont, cont, factorialCalcule(n, cont)))
+        cont += 1
+
+
+expasionFactorial()
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 37 - Um palíndromo é uma palavra que se soletra da mesma forma
+# nos dois sentidos, como "osso" e "reviver". Recursivamente, uma
+# palavra é um palíndromo se a primeira e a última letra forem
+# iguais e o meio for um palíndromo.
+
+def isPalindromo(string):
+  reverseString = string[::-1].lower()
+  if(reverseString == string.lower()):
+    print("Esta palavra é um palíndromo")
+  else:
+    print("Esta palavra não é um palíndromo")
+
+word = input("Digite uma palavra para ver se a mesma é um palíndromo: ")
+isPalindromo(word)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 38 - Um número a é uma potência de b se for divisível por b e a/b
+# for uma potência de b. Escreva uma função chamada isPower que receba
+# os parâmetros a e b e retorne True se a for uma potência de b.
+
+def isPower(valueA, valueB):
+  valueADivisor = valueA
+
+  while(valueADivisor >= valueB):
+    valueADivisor = valueADivisor / valueB
+  
+  if(valueADivisor == 1):
+    print(f"Este número é uma potência de {valueB}")
+  else:
+    print(f"Este número não é uma potência de {valueB}")
+
+
+
+valueA = int(input("Digite um valor inteiro para A: "))
+valueB = int(input("Digite um valor inteiro para B: "))
+
+isPower(valueA, valueB)
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 39 - O maior divisor comum (MDC, ou GDC em inglês) de a e b é o
+# maior número que divide ambos sem sobrar resto. Um modo de encontrar
+# o MDC de dois números é observar qual é o resto r quando a é dividido
+# por b, verificando que gcd(a, b) = gcd(b, r). Como caso-base, podemos
+# usar gcd(a, 0) = a. Escreva uma função chamada gcd que receba os
+# parâmetros a e b e devolva o maior  divisor comum.
+
+def gcd(valueA, valueB):
+  if(valueB == 0):
+    return valueA
+  else:
+    print(valueA % valueB)
+    return gcd(valueB, valueA % valueB)
+
+
+valueA = int(input("Digite um valor para A: "))
+valueB = int(input("Digite um valor para B: "))
+
+print(gcd(valueA, valueB))
+
+print()  # It will be used to print a blank line between de exercises.
+
+# 40 - Campo minado é um jogo que se tornou muito popular por
+# acompanhar o sistema operacional Microsoft Windows. Nesse jogo,
+# o campo minado pode ser representado por uma matriz retangular.
+# O jogador deve revelar todas as posições livres (sem bomba) da
+# matriz, clicando em uma posição com conteúdo desconhecido. O
+# jogo acaba quando o jogador clicar em uma posição com bomba, ou
+# quando todas as posições livres forem abertas. Nesse exercício,
+# você deve implementar algumas funções que podem ser utilizadas
+# na implementação desse jogo.
+# A - Escreva uma função que recebe como parâmetros uma matriz inteira
+# A e uma posição (lin, col) da matriz, e conta quantas posições ao
+# redor da posição (lin, col) contém o valor -1 (valor adotado para
+# representar a bomba)
+# B - Escreva um programa que lê uma matriz A de 0's (posições livres)
+# e -1's (bomba). Utilizando a função do item anterior, o programa
+# deve computar e imprimir a quantidade de bombas ao redor de cada
+# posição livre da matriz.
+
+def bombCount(A, row, col):
+  positionsWithBomb = 0
+  if row > 0 and A[row-1][col] == 1:
+    positionsWithBomb += 1
+  if row < len(A) - 1 and A[row+1][col] == -1:
+    positionsWithBomb += 1
+  if col > 0 and A[row][col - 1] == 1:
+    positionsWithBomb += 1
+  if col < len(A[0]) - 1 and A[row][col+1] == -1:
+    positionsWithBomb += 1
+  
+  return positionsWithBomb
+
+m = int(input("Número de linhas: "))
+n = int(input("Número de colunas: "))
+A = []
+
+for i in range(m):
+  linha = []
+  for j in range(n):
+    linha.append(int(input("Digite A[%d][%d]: " % (i, j))))
+  A.append(linha)
+
+for i in range(m):
+  for j in range(n):
+    print("Bombas ao redor de A[%d][%d]: %d" % (i, j, bombCount(A, i, j)))
+
+
+print()  # It will be used to print a blank line between de exercises.
+
