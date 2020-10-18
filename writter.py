@@ -1,47 +1,32 @@
-# 40 - Campo minado é um jogo que se tornou muito popular por
-# acompanhar o sistema operacional Microsoft Windows. Nesse jogo,
-# o campo minado pode ser representado por uma matriz retangular.
-# O jogador deve revelar todas as posições livres (sem bomba) da
-# matriz, clicando em uma posição com conteúdo desconhecido. O
-# jogo acaba quando o jogador clicar em uma posição com bomba, ou
-# quando todas as posições livres forem abertas. Nesse exercício,
-# você deve implementar algumas funções que podem ser utilizadas
-# na implementação desse jogo.
-# A - Escreva uma função que recebe como parâmetros uma matriz inteira
-# A e uma posição (lin, col) da matriz, e conta quantas posições ao
-# redor da posição (lin, col) contém o valor -1 (valor adotado para
-# representar a bomba)
-# B - Escreva um programa que lê uma matriz A de 0's (posições livres)
-# e -1's (bomba). Utilizando a função do item anterior, o programa
-# deve computar e imprimir a quantidade de bombas ao redor de cada
-# posição livre da matriz.
 
-def bombCount(A, row, col):
-  positionsWithBomb = 0
-  if row > 0 and A[row-1][col] == 1:
-    positionsWithBomb += 1
-  if row < len(A) - 1 and A[row+1][col] == -1:
-    positionsWithBomb += 1
-  if col > 0 and A[row][col - 1] == 1:
-    positionsWithBomb += 1
-  if col < len(A[0]) - 1 and A[row][col+1] == -1:
-    positionsWithBomb += 1
-  
-  return positionsWithBomb
+# def cortar(lista):
+#   lista.pop(0)
+#   lista.pop()
+#   print(lista)
 
-m = int(input("Número de linhas: "))
-n = int(input("Número de colunas: "))
-A = []
+# lista = [1, 2, 3]
 
-for i in range(m):
-  linha = []
-  for j in range(n):
-    linha.append(int(input("Digite A[%d][%d]: " % (i, j))))
-  A.append(linha)
+# cortar(lista)
 
-for i in range(m):
-  for j in range(n):
-    print("Bombas ao redor de A[%d][%d]: %d" % (i, j, bombCount(A, i, j)))
+# # 2 - Escreva uma função chamada mais_frequente
+# # que receba uma string e exiba as letras em ordem
+# # descrescente.
 
+# lista = ['z', 'b', 'c']
 
-print()  # It will be used to print a blank line between de exercises.
+# def mais_frequente(lista):
+#   print(sorted(lista, reverse=True))
+
+# mais_frequente(lista)
+
+# 3 - Escreva um programa que leia uma lista de palavras
+# de um arquivo e imprima todos os conjuntos de
+# palavras que são anagramas. 
+
+openFile = open("/home/luiz/projetos/pythonExercises/arquivo.txt", 'r')
+
+arrayOfArrays = []
+
+for linha in openFile:
+  valores = linha.lower().split()
+  arrayOfArrays.append(valores)
